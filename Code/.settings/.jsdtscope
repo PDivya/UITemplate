@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="assets/js/component/navBar"/>
+	<classpathentry kind="src" path="assets/js/component/widgets"/>
+	<classpathentry kind="src" path="assets/js/core"/>
+	<classpathentry kind="src" path="assets/js/model"/>
+	<classpathentry kind="src" path="assets/js/tp"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
