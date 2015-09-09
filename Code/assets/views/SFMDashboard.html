@@ -1,0 +1,147 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="img/a6.jpg" />
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Kate Carton</strong>
+                             </span>Software File Manager</span> </a>
+                    </div>
+                    <div class="logo-element">
+                        Movimento  OTA MP
+                    </div>
+                </li>
+                <li>
+                    <a onclick="renderSFD()"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
+                </li>
+                <li>
+                    <a onclick="handleSFTask()"><i class="fa fa-cube"></i>Tasks</a>
+                </li>
+                <li>
+                    <a href="contacts.html"><i class="fa fa-user"></i> <span class="nav-label">My Profile</span></a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+
+                </div>
+
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+
+                    <li>
+                        <a href="login.html">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Software File Manager</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">Files Uploaded by Me</a>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h3>Vehicles Updated Based on Update Priority </h3>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="img/SFChart.png"  style="height: 390px !important;">
+                        </div>
+
+                        <button class="btn btn-success" style="float: right" type="submit"> Download Report</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div ng-include="'views/common/footer.html'"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('.dataTables-example').dataTable({
+                responsive: true,
+                "dom": 'T<"clear">lfrtip',
+                "tableTools": {
+                    "sSwfPath": "js/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                }
+            });
+
+            new Chartist.Bar('#ct-chart3', {
+                labels: ['Critical', 'Recommended', 'Optional', 'Background'],
+                series: [
+                    [800000, 1200000, 1400000, 1300000],
+                    [200000, 400000, 500000, 300000],
+                    [100000, 200000, 400000, 600000]
+                ]
+            }, {
+                stackBars: true,
+                axisY: {
+                    labelInterpolationFnc: function(value) {
+                        return (value / 10000) + 'k';
+                    },
+
+
+                }
+            }).on('draw', function(data) {
+                        if(data.type === 'bar') {
+                            data.element.attr({
+                                style: 'stroke-width: 30px'
+                            });
+                        }
+                    });
+
+            $('tr').click( function () {
+                //var sData = oTable.fnGetData( this );
+                var url='form_basic.html?';
+                window.location.href=url;
+            } );
+        } );
+
+        function fnClickAddRow() {
+            window.location.href="form_basic.html?";
+
+        }
+        function renderSFD() {
+            $("#wrapper").empty();
+            $.get("views/SFMDashboard.html", function (data) {
+                $('#wrapper').append(data);
+            });
+
+        }
+        function handleSFTask(){
+            $("#page-wrapper").empty();
+            $.get("views/table_data_tables.html", function (data) {
+                $('#page-wrapper').append(data);
+            });
+
+        }
+    </script>

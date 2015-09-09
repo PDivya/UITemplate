@@ -1,0 +1,135 @@
+
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+
+                    <li>
+                        <a href="login.html">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2 class="profileName">Campaign Manager</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">View My Tasks - Single ECU Update List</a>
+                </li>
+
+            </ol>
+        </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <div id="updateManagerTools" class="ibox-tools">
+                            </div>
+                        </div>
+                        <div class="ibox-content" id="planContent">
+                            <label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="editable"></label>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover " >
+                                    <thead>
+                                    <tr>
+
+                                        <th>Select</th>
+                                        <th>Task</th>
+                                        <th>Priority</th>
+                                        <th>ECU</th>
+                                        <th>ECU ID</th>
+                                        <th>Software Type</th>
+                                        <th>Approved  File Version</th>
+                                        <th>Approved File Update Due Time</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" checked class="i-checks" name="input[]"></td>
+                                        <td>20150812_001</td>
+                                        <td>Critical</td>
+                                        <td>ARB</td>
+                                        <td>ARB-1234</td>
+                                        <td>Firmware</td>
+                                        <td>Abfm_50815</td>
+                                        <td>12:00AM PST, 08/22/2015</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"  class="i-checks" name="input[]"></td>
+                                        <td>20150812_002</td>
+                                        <td>Critical</td>
+                                        <td>AS</td>
+                                        <td>RGZ-34N</td>
+                                        <td>Firmware</td>
+                                        <td>AS_20150812</td>
+                                        <td>12:00PM PST, 08/24/2015</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <div style="float: right;">
+                                        <button class="btn btn-success"  type="submit">Start New Campaign</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div ng-include="'views/common/footer.html'"></div>
+
+    <div class="modal inmodal" id="myModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <i class="fa fa-laptop modal-icon"></i>
+                    <h4 class="modal-title">Review new campaign you just created</h4>
+                </div>
+                <div class="modal-body">
+                    <p><strong>For Critical Task20150812_001, you created Campaign20150815_abs, selected 2000 out of 40000 vehicles with ECU ID RGZ-34N to receive Firmware file version AS_20150812.P with approved update time by 12:00AM PST, 08/22/2015'+
+
+                        Deployment manager Tom Krauss is assigned to deploy Campaign20150815_abs
+                    </p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Edit Campaign</button>
+                        <button type="button" class="btn btn-primary">Submit Campaign</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+
+            $('tr').click( function () {
+                //var sData = oTable.fnGetData( this );
+                var url='compaignManagerDetail.html?';
+                window.location.href=url;
+            } );
+        } );
+
+
+    </script>>

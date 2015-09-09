@@ -1,0 +1,119 @@
+ <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+
+                </div>
+
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+
+                    <li>
+                        <a href="login.html">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Software File Manager</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">Look Up ECU</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Existing Software</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <label>Search by ECU ID:<input type="search" class="form-control input-sm" placeholder="" aria-controls="editable"></label>
+                            <table class="table table-bordered" id="basic">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>ECU ID</th>
+                                    <th>ECU Vendor</th>
+                                    <th>Software Type</th>
+                                    <th>Current Software Version</th>
+                                    <th>File Size</th>
+                                    <th>File Upload Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeA">
+                                    <td><input type="checkbox" checked class="i-checks" name="input[]"></td>
+                                    <td>ARB-1234</td>
+                                    <td>LAR</td>
+                                    <td>Firmware</td>
+                                    <td>Abfm_150512 </br><a onclick="taskDetail()">View details</a></td>
+                                    <td>150KB</td>
+                                    <td>2:00 PM PST, 08/12/2015</td>
+
+                                </tr>
+
+                                <tr class="gradeA">
+                                    <td><input type="checkbox" class="i-checks" name="input[]"></td>
+                                    <td>ARB-1234</td>
+                                    <td>KLP</td>
+                                    <td>Application 1</td>
+                                    <td>Klpb_150341 </br><a onclick="taskDetail()">View details</a></td>
+                                    <td>1.0MB</td>
+                                    <td>10:00 AM PST, 08/12/2015</td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td><input type="checkbox" class="i-checks" name="input[]"></td>
+                                    <td>ARB-1234</td>
+                                    <td>MAR</td>
+                                    <td>Application 2</td>
+                                    <td>Ctlr_230982 </br><a onclick="taskDetail()">View details</a></td>
+                                    <td>1.2MB</td>
+                                    <td>4:10 PM PST, 08/14/2015</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="form-group">
+                                <!--               <label>Showing 1 out of 3 Software Files</label> -->
+                                <div class="col-sm-4 col-sm-offset-10">
+                                    <button class="btn btn-success" onclick="fnClickAddRow();" href="javascript:void(0);" type="submit">Add New File</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+ <div ng-include="'views/common/footer.html'"></div>
+    <script>
+        $(document).ready(function() {
+            $('tr').click( function () {
+                $("#page-wrapper").empty();
+                $.get("views/form_basic.html", function (data) {
+                    $('#page-wrapper').append(data);
+                });
+            } );
+        } );
+        function taskDetail(){
+            $("#page-wrapper").empty();
+            $.get("views/form_basic.html", function (data) {
+                $('#page-wrapper').append(data);
+            });
+        }
+    </script>
